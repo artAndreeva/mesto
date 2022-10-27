@@ -16,7 +16,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 600px) {
   .gallery__list {
     grid-template-columns: 282px;
     row-gap: 22px;

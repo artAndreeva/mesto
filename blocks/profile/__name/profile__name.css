@@ -18,13 +18,25 @@
   box-sizing: border-box;
   display: inline-block;
   margin-left: 22px;
+  cursor: pointer;
+  transition: opacity .5s ease-in-out 0s;
 }
 
-@media screen and (max-width: 320px) {
+.profile__name:hover::after {
+  opacity: .6;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__name {
+    margin-left: 35px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
   .profile__name {
     font-size: 27px;
     line-height: 33px;
-    text-align: center;
     margin-left: 25px;
   }
 
