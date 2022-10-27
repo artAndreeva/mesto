@@ -1,0 +1,23 @@
+.profile_position_center {
+  margin: 0 auto;
+  max-width: 880px;
+  min-height: 120px;
+}
+
+@media screen and (max-width: 1024px) {
+  .profile_position_center {
+    max-width: 780px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile_position_center {
+    max-width: 580px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile_position_center {
+    max-width: 282px;
+  }
+}

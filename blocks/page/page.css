@@ -6,15 +6,4 @@
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 45px 0 60px;
-}
-
-@media screen and (max-width: 320px) {
-  .page {
-    max-width: 320px;
-    padding-top: 26px;
-    padding-bottom: 36px;
-  }
 }

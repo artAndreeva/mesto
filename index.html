@@ -7,45 +7,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="decription" content="">
   <meta name="keywords" content="">
-  <meta name="author" content="Svetlana Andreeva">
+  <meta name="author" content="Светлана Андреева">
   <link rel="stylesheet" href="./pages/index.css">
-  <title></title>
+  <title>Проект Место</title>
 </head>
 
 <body class="content">
-  <div class="page">
-    <!-- шапка -->
-    <header class="header">
-      <a href="#" class="header__logo logo"></a>
+  <div class="page page_position_center">
+
+    <header class="header header_position_center">
+      <a href="#" class="logo header__logo"></a>
     </header>
-    <!-- основной комтент -->
+
     <main class="main">
-      <!-- профиль -->
-      <section class="profile">
-        <div class="profile__avatar"></div>
-        <div>
+
+      <section class="profile profile_position_center">
+        <img src="./images/profile-kusto.jpg" alt="Аватар" class="profile__avatar"></img>
+        <div class="profile__info">
           <p class="profile__name">Жак-Ив Кусто</p>
           <p class="profile__about">Исследователь океана</p>
         </div>
-        <div class="profile__add-button"></div>
+        <button class="profile__add-button"></button>
       </section>
-      <!-- галерея -->
-      <section class="gallery">
-        <ul class="cards">
-          <li class="card__item"><img src="./images/elements-karachaevsk.jpg" alt="Карачаевск" class="card__image"></li>
-          <li class="card__item"><img src="./images/elements-elbrus-1.jpg" alt="Гора Эльбрус"></li>
-          <li class="card__item"><img src="./images/elements-dombai-1.jpg" alt="Домбай"></li>
-          <li class="card__item"><img src="./images/elements-elbrus-2.jpg" alt="Гора Эльбрус"></li>
-          <li class="card__item"><img src="./images/elements-dombai-2.jpg" alt="Домбай"></li>
-          <li class="card__item"><img src="./images/elements-karachaevo-cherkessiya.jpg" alt="Карачаево-Черкессия"></li>
+
+      <section class="gallery gallery_position_center">
+        <ul class="gallery__list">
+          <li class="gallery__item card">
+            <img src="./images/elements-karachaevsk.jpg" alt="Карачаевск" class="card__image">
+            <div class="card__caption">
+              <p class="card__text">Карачаевск</p>
+              <button class="card__button"></button>
+            </div>
+          </li>
+          <li class="gallery__item card">
+            <img src="./images/elements-elbrus.jpg" alt="Гора Эльбрус" class="card__image">
+            <div class="card__caption">
+              <p class="card__text">Гора Эльбрус</p>
+              <button class="card__button"></button>
+            </div>
+          </li>
+          <li class="gallery__item card">
+            <img src="./images/elements-dombai.jpg" alt="Домбай" class="card__image">
+            <div class="card__caption">
+              <p class="card__text">Домбай</p>
+              <button class="card__button"></button>
+            </div>
+          </li>
+          <li class="gallery__item card">
+            <img src="./images/elements-elbrus.jpg" alt="Гора Эльбрус" class="card__image">
+            <div class="card__caption">
+              <p class="card__text">Гора Эльбрус</p>
+              <button class="card__button"></button>
+            </div>
+          </li>
+          <li class="gallery__item card">
+            <img src="./images/elements-dombai.jpg" alt="Домбай" class="card__image">
+            <div class="card__caption">
+              <p class="card__text">Домбай</p>
+              <button class="card__button"></button>
+            </div>
+          </li>
+          <li class="gallery__item card">
+            <img src="./images/elements-karachaevsk.jpg" alt="Карачаево-Черкессия" class="card__image">
+            <div class="card__caption">
+              <p class="card__text">Карачаево-Черкессия</p>
+              <button class="card__button"></button>
+            </div>
+          </li>
         </ul>
       </section>
-    </main>
-  </div>
-  <!-- подвал -->
-  <footer class="footer">
 
-  </footer>
+    </main>
+
+    <footer class="footer footer_position_center">
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
 
   </div>
 </body>

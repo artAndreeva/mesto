@@ -1,0 +1,16 @@
+.gallery_position_center {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .gallery_position_center {
+    max-width: 780px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .gallery_position_center {
+    max-width: 282px;
+  }
+}
