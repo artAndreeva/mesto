@@ -1,9 +1,13 @@
 .profile__info {
-  justify-self: start;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 16px;
+  column-gap: 18px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 400px) {
   .profile__info {
-    justify-self: center;
+    row-gap: 14px;
+    column-gap: 10px;
   }
 }
