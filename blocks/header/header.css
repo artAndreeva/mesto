@@ -2,8 +2,7 @@
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   border-bottom: 1px solid rgb(84, 84, 84);
   max-width: 880px;
-  min-height: 74px;
-  padding-top: 45px;
+  padding: 45px 0 41px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -23,5 +22,6 @@
     max-width: 100%;
     min-height: 56px;
     padding-top: 28px;
+    padding-bottom: 31px;
   }
 }
