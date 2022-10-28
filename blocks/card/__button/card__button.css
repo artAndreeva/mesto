@@ -7,10 +7,4 @@
   background-repeat: no-repeat;
   padding: 0;
   border: 0;
-  cursor: pointer;
-  transition: opacity .5s ease-in-out 0s;
-}
-
-.card__button:hover {
-  opacity: .5;
 }

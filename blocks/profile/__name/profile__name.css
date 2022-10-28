@@ -18,12 +18,6 @@
   box-sizing: border-box;
   display: inline-block;
   margin-left: 22px;
-  cursor: pointer;
-  transition: opacity .5s ease-in-out 0s;
-}
-
-.profile__name:hover::after {
-  opacity: .6;
 }
 
 @media screen and (max-width: 768px) {
