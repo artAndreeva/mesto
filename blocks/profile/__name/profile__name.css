@@ -6,20 +6,6 @@
   margin: 0;
 }
 
-.profile__name::after {
-  content: '';
-  width: 24px;
-  height: 24px;
-  border: 1px solid rgb(255, 255, 255);
-  background-image: url(../../../images/profile-edit-button.svg);
-  background-size: 10px 10px;
-  background-repeat: no-repeat;
-  background-position: center;
-  box-sizing: border-box;
-  display: inline-block;
-  margin-left: 22px;
-}
-
 @media screen and (max-width: 768px) {
   .profile__name {
     margin-left: 35px;
@@ -32,12 +18,5 @@
     font-size: 27px;
     line-height: 33px;
     margin-left: 25px;
-  }
-
-  .profile__name::after {
-    width: 18px;
-    height: 18px;
-    background-size: 7.5px 7.5px;
-    margin-left: 10px;
   }
 }
