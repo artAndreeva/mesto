@@ -22,7 +22,7 @@
     <main class="main">
 
       <section class="profile profile_position_center">
-        <img src="./images/profile-kusto.jpg" alt="Аватар" class="profile__avatar"></img>
+        <img src="./images/profile-kusto.jpg" alt="Аватар" class="profile__avatar">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button class="profile__edit-button link link_opacity_button" type="button"></button>
@@ -31,7 +31,7 @@
         <button class="profile__add-button link link_opacity_button" type="button"></button>
       </section>
 
-      <section class="gallery gallery_position_center">
+      <section class="gallery gallery_position_center" aria-label="Галерея пользователя">
         <ul class="gallery__list">
           <li class="gallery__item card">
             <img src="./images/elements-karachaevsk.jpg" alt="Карачаевск" class="card__image">
@@ -81,20 +81,23 @@
     </main>
 
     <footer class="footer footer_position_center">
-      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+      <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
 
     <div class="popup">
       <div class="popup__container">
         <button class="popup__close-button link link_opacity_button"></button>
         <p class="popup__title">Редактировать профиль</p>
-        <input type="text" class="popup__field">
-        <input type="text" class="popup__field">
-        <button type="button" class="popup__save-button link link_opacity_save">Сохранить</button>
+        <form class="popup__form">
+          <input type="text" name="name" value="" placeholder="Имя" class="popup__field">
+          <input type="text" name="about" value="" placeholder="О себе" class="popup__field">
+          <button type="submit" class="popup__save-button link link_opacity_save">Сохранить</button>
+        </form>
       </div>
     </div>
 
   </div>
+  <script src="./scripts/index.js" defer></script>
 </body>
 
 </html>
