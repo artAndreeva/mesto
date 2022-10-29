@@ -1,7 +1,7 @@
-.link_opacity_heart {
+.button_opacity_heart {
   transition: opacity .5s ease-in-out 0s;
 }
 
-.link_opacity_heart:hover {
+.button_opacity_heart:hover {
   opacity: .5;
 }

@@ -2,21 +2,18 @@
 @import url(../vendor/fonts/fonts.css);
 @import url(../blocks/content/content.css);
 @import url(../blocks/page/page.css);
-@import url(../blocks/page/_position/page_position_center.css);
 /* logo */
 @import url(../blocks/logo/logo.css);
 /* link */
-@import url(../blocks/link/link.css);
-@import url(../blocks/link/_opacity/link_opacity_button.css);
-@import url(../blocks/link/_opacity/link_opacity_heart.css);
-@import url(../blocks/link/_opacity/link_opacity_save.css);
+@import url(../blocks/button/button.css);
+@import url(../blocks/button/_opacity/button_opacity_page.css);
+@import url(../blocks/button/_opacity/button_opacity_heart.css);
+@import url(../blocks/button/_opacity/button_opacity_save.css);
 /* header */
 @import url(../blocks/header/header.css);
-@import url(../blocks/header/_position/header_position_center.css);
 @import url(../blocks/header/__logo/header__logo.css);
 /* profile */
 @import url(../blocks/profile/profile.css);
-@import url(../blocks/profile/_position/profile_position_center.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
@@ -25,9 +22,7 @@
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 /* gallery */
 @import url(../blocks/gallery/gallery.css);
-@import url(../blocks/gallery/_position/gallery_position_center.css);
 @import url(../blocks/gallery/__list/gallery__list.css);
-@import url(../blocks/gallery/__item/gallery__item.css);
 /* card */
 @import url(../blocks/card/card.css);
 @import url(../blocks/card/__image/card__image.css);
@@ -36,7 +31,6 @@
 @import url(../blocks/card/__button/card__button.css);
 /* footer */
 @import url(../blocks/footer/footer.css);
-@import url(../blocks/footer/_position/footer_position_center.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 /* popup */
 @import url(../blocks/popup/popup.css);

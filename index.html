@@ -13,66 +13,74 @@
 </head>
 
 <body class="content">
-  <div class="page page_position_center">
+  <div class="page">
 
-    <header class="header header_position_center">
+    <header class="header">
       <a href="#" class="logo header__logo"></a>
     </header>
 
     <main class="main">
 
-      <section class="profile profile_position_center">
+      <section class="profile">
         <img src="./images/profile-kusto.jpg" alt="Аватар" class="profile__avatar">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button link link_opacity_button" type="button"></button>
+          <button class="profile__edit-button button button_opacity_page" aria-label="Кнопка редактирования профиля"
+            type="button"></button>
           <p class="profile__about">Исследователь океана</p>
         </div>
-        <button class="profile__add-button link link_opacity_button" type="button"></button>
+        <button class="profile__add-button button button_opacity_page" aria-label="Кнопка добавления информации"
+          type="button"></button>
       </section>
 
-      <section class="gallery gallery_position_center" aria-label="Галерея пользователя">
+      <section class="gallery" aria-label="Галерея пользователя">
         <ul class="gallery__list">
           <li class="gallery__item card">
             <img src="./images/elements-karachaevsk.jpg" alt="Карачаевск" class="card__image">
             <div class="card__caption">
-              <p class="card__text">Карачаевск</p>
-              <button class="card__button link link_opacity_heart" type="button"></button>
+              <h2 class="card__text">Карачаевск</h2>
+              <button class="card__button button button_opacity_heart" aria-label="Поставить лайк"
+                type="button"></button>
             </div>
           </li>
           <li class="gallery__item card">
             <img src="./images/elements-elbrus.jpg" alt="Гора Эльбрус" class="card__image">
             <div class="card__caption">
-              <p class="card__text">Гора Эльбрус</p>
-              <button class="card__button link link_opacity_heart" type="button"></button>
+              <h2 class="card__text">Гора Эльбрус</h2>
+              <button class="card__button button button_opacity_heart" aria-label="Поставить лайк"
+                type="button"></button>
             </div>
           </li>
           <li class="gallery__item card">
             <img src="./images/elements-dombai.jpg" alt="Домбай" class="card__image">
             <div class="card__caption">
-              <p class="card__text">Домбай</p>
-              <button class="card__button link link_opacity_heart" type="button"></button>
+              <h2 class="card__text">Домбай</h2>
+              <button class="card__button button button_opacity_heart" aria-label="Поставить лайк"
+                type="button"></button>
             </div>
           </li>
           <li class="gallery__item card">
             <img src="./images/elements-elbrus.jpg" alt="Гора Эльбрус" class="card__image">
             <div class="card__caption">
-              <p class="card__text">Гора Эльбрус</p>
-              <button class="card__button link link_opacity_heart" type="button"></button>
+              <h2 class="card__text">Гора Эльбрус</h2>
+              <button class="card__button button button_opacity_heart" aria-label="Поставить лайк"
+                type="button"></button>
             </div>
           </li>
           <li class="gallery__item card">
             <img src="./images/elements-dombai.jpg" alt="Домбай" class="card__image">
             <div class="card__caption">
-              <p class="card__text">Домбай</p>
-              <button class="card__button link link_opacity_heart" type="button"></button>
+              <h2 class="card__text">Домбай</h2>
+              <button class="card__button button button_opacity_heart" aria-label="Поставить лайк"
+                type="button"></button>
             </div>
           </li>
           <li class="gallery__item card">
             <img src="./images/elements-karachaevsk.jpg" alt="Карачаево-Черкессия" class="card__image">
             <div class="card__caption">
-              <p class="card__text">Карачаево-Черкессия</p>
-              <button class="card__button link link_opacity_heart" type="button"></button>
+              <h2 class="card__text">Карачаево-Черкессия</h2>
+              <button class="card__button button button_opacity_heart" aria-label="Поставить лайк"
+                type="button"></button>
             </div>
           </li>
         </ul>
@@ -80,18 +88,18 @@
 
     </main>
 
-    <footer class="footer footer_position_center">
-      <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+    <footer class="footer">
+      <p class="footer__copyright" lang="en">&copy; 2022 Mesto Russia</p>
     </footer>
 
     <div class="popup">
       <div class="popup__container">
-        <button class="popup__close-button link link_opacity_button"></button>
-        <p class="popup__title">Редактировать профиль</p>
-        <form class="popup__form">
+        <button class="popup__close-button button button_opacity_page" type="button"></button>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <form name="form" class="popup__form">
           <input type="text" name="name" value="" placeholder="Имя" class="popup__field">
           <input type="text" name="about" value="" placeholder="О себе" class="popup__field">
-          <button type="submit" class="popup__save-button link link_opacity_save">Сохранить</button>
+          <button type="submit" class="popup__save-button button button_opacity_save">Сохранить</button>
         </form>
       </div>
     </div>

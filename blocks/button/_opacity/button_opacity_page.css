@@ -1,7 +1,7 @@
-.link_opacity_button {
+.button_opacity_page {
   transition: opacity .5s ease-in-out 0s;
 }
 
-.link_opacity_button:hover {
+.button_opacity_page:hover {
   opacity: .6;
 }

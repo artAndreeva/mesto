@@ -1,7 +1,7 @@
-.link_opacity_save {
+.button_opacity_save {
   transition: opacity .5s ease-in-out 0s;
 }
 
-.link_opacity_save:hover {
+.button_opacity_save:hover {
   opacity: .8;
 }
