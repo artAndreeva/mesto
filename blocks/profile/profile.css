@@ -1,7 +1,6 @@
 .profile {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   max-width: 880px;
-  min-height: 120px;
   display: grid;
   grid-template-columns: 120px auto 1fr;
   column-gap: 30px;
