@@ -59,11 +59,9 @@ function newCard(image, text) {
   const cardText = cardElement.querySelector('.card__text');
   const cardButton = cardElement.querySelector('.card__button');
   const cardDelete = cardElement.querySelector('.card__delete');
-
   cardImage.src = image;
   cardImage.alt = text;
   cardText.textContent = text;
-
   cardImage.addEventListener('click', () => {
     popupOpen(popupImageElement);
     popupImage.src = cardImage.src;
