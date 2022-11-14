@@ -41,18 +41,10 @@ const initialCards = [
 const initialCardsReverse = initialCards.reverse();
 
 initialCardsReverse.forEach(function (element) {
-  newCard(element.link, element.name);
+  createCard(element.link, element.name);
 });
 
-function popupOpen(popupElement) {
-  popupElement.classList.add('popup_opened');
-}
-
-function popupClose(popupElement) {
-  popupElement.classList.remove('popup_opened');
-}
-
-function newCard(image, text) {
+function createCard(image, text) {
   const cardTemplate = document.querySelector('#card').content;
   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
   const cardImage = cardElement.querySelector('.card__image');
@@ -75,6 +67,14 @@ function newCard(image, text) {
     evt.target.closest('.card').remove();
   });
   cardGallery.prepend(cardElement);
+}
+
+function popupOpen(popupElement) {
+  popupElement.classList.add('popup_opened');
+}
+
+function popupClose(popupElement) {
+  popupElement.classList.remove('popup_opened');
 }
 
 profileEditElement.addEventListener('click', () => {
@@ -106,7 +106,7 @@ formSubmitElement[0].addEventListener('submit', (evt) => {
 
 formSubmitElement[1].addEventListener('submit', (evt) => {
   evt.preventDefault();
-  newCard(inputs[3].value, inputs[2].value);
+  createCard(inputs[3].value, inputs[2].value);
   inputs[2].value = '';
   inputs[3].value = '';
   popupClose(popupAddElement);
