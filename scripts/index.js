@@ -39,6 +39,10 @@ function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
 }
 
+function undefineForm(evt) {
+  evt.preventDefault();
+}
+
 profileEditElement.addEventListener('click', () => {
   openPopup(popupEditElement);
   inputName.value = profileNameElement.textContent;
@@ -60,16 +64,15 @@ popupCloseImageElement.addEventListener('click', () => {
 });
 
 formSubmitEditElement.addEventListener('submit', (evt) => {
-  evt.preventDefault();
+  undefineForm(evt);
   profileNameElement.textContent = inputName.value;
   profileAboutElement.textContent = inputAbout.value;
   closePopup(popupEditElement);
 });
 
 formSubmitAddElement.addEventListener('submit', (evt) => {
-  evt.preventDefault();
+  undefineForm(evt);
   renderCard(createCard(inputImageUrl.value, inputPlaceName.value), cardGallery);
-  inputPlaceName.value = '';
-  inputImageUrl.value = '';
+  formSubmitAddElement.reset();
   closePopup(popupAddElement);
 });

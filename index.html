@@ -47,11 +47,16 @@
 
     <div class="popup popup_edit">
       <div class="popup__container">
-        <form name="edit-profile-form" class="popup__form popup__form_edit">
-          <button class="popup__close-button popup__close-button_edit button button_opacity_page" type="button"></button>
+        <form name="edit" class="popup__form popup__form_edit" novalidate>
+          <button class="popup__close-button popup__close-button_edit button button_opacity_page"
+            type="button"></button>
           <h3 class="popup__title">Редактировать профиль</h3>
-          <input type="text" name="name" value="" placeholder="Имя" class="popup__field popup__field_name">
-          <input type="text" name="about" value="" placeholder="О себе" class="popup__field popup__field_about">
+          <input type="text" name="name" value="" placeholder="Имя" required minlength="2" maxlength="40"
+            class="popup__field popup__field_name">
+          <span class="popup__input-error"></span>
+          <input type="text" name="about" value="" placeholder="О себе" required minlength="2" maxlength="200"
+            class="popup__field popup__field_about">
+          <span class="popup__input-error"></span>
           <button type="submit" class="popup__save-button button button_opacity_save">Сохранить</button>
         </form>
       </div>
@@ -59,11 +64,15 @@
 
     <div class="popup popup_add">
       <div class="popup__container">
-        <form name="add-profile-form" class="popup__form popup__form_add">
+        <form name="add" class="popup__form popup__form_add" novalidate>
           <button class="popup__close-button popup__close-button_add button button_opacity_page" type="button"></button>
           <h3 class="popup__title">Новое место</h3>
-          <input type="text" name="picture-name" value="" placeholder="Название" class="popup__field popup__field_place-name">
-          <input type="text" name="picture-link" value="" placeholder="Ссылка на картинку" class="popup__field popup__field_image-url">
+          <input type="text" name="picture" value="" placeholder="Название" required minlength="2" maxlength="30"
+            class="popup__field popup__field_place-name">
+          <span class="popup__input-error"></span>
+          <input type="url" name="link" value="" placeholder="Ссылка на картинку" required
+            class="popup__field popup__field_image-url">
+          <span class="popup__input-error"></span>
           <button type="submit" class="popup__save-button button button_opacity_save">Создать</button>
         </form>
       </div>
@@ -94,6 +103,7 @@
 
   <script src="./scripts/variables.js" defer></script>
   <script src="./scripts/index.js" defer></script>
+  <script src="./scripts/validation.js" defer></script>
 </body>
 
 </html>
