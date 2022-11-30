@@ -1,63 +1,71 @@
-const showInputError = (formElement, inputElement, errorMessage) => {
+
+/* ошибка */
+const showInputError = (formElement, inputElement, errorMessage, selectData) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add('form__input_type_error');
+  inputElement.classList.add(selectData.inputErrorClass);
+  errorElement.classList.add(selectData.errorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add('form__input-error_active');
 };
 
-const hideInputError = (formElement, inputElement) => {
+/* нет ошибки */
+const hideInputError = (formElement, inputElement, selectData) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('form__input_type_error');
-  errorElement.classList.remove('form__input-error_active');
+  inputElement.classList.remove(selectData.inputErrorClass);
+  errorElement.classList.remove(selectData.errorClass);
   errorElement.textContent = '';
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+/* переключатель ошибки */
+const checkInputValidity = (formElement, inputElement, selectData) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(formElement, inputElement, inputElement.validationMessage, selectData);
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, selectData);
   }
 };
 
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll('.form__input'));
-  const buttonElement = formElement.querySelector('.form__submit');
-  toggleButtonState(inputList, buttonElement);
+/* настройка слушателей */
+const setEventListeners = (formElement, selectData) => {
+  const inputList = Array.from(formElement.querySelectorAll(selectData.inputSelector));
+  const buttonElement = formElement.querySelector(selectData.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, selectData);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
+      checkInputValidity(formElement, inputElement, selectData);
+      toggleButtonState(inputList, buttonElement, selectData);
     });
   });
 };
+
+/* есть хотя бы один невалидный инпут */
 function hasInvalidInput(inputList) {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
 }
-
-const toggleButtonState = (inputList, buttonElement) => {
+/* переключатель кнопки */
+const toggleButtonState = (inputList, buttonElement, selectData) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('button_inactive');
+    buttonElement.classList.add(selectData.inactiveButtonClass);
+    buttonElement.setAttribute('disabled', true);
   } else {
-    buttonElement.classList.remove('button_inactive');
+    buttonElement.classList.remove(selectData.inactiveButtonClass);
+    buttonElement.removeAttribute('disabled');
   };
 }
-
-function enableValidation() {
-  const formList = Array.from(document.querySelectorAll('.form'));
+/* доступ к валидации */
+function enableValidation(selectData) {
+  const formList = Array.from(document.querySelectorAll(selectData.formSelector));
   formList.forEach((formElement) => {
-    formElement.addEventListener('submit', function (evt) {
-      evt.preventDefault();
-    });
-    const fieldsetList = Array.from(formElement.querySelectorAll('.form__set'));
-    fieldsetList.forEach((fieldSet) => {
-      setEventListeners(fieldSet);
-    });
+    setEventListeners(formElement, selectData);
   });
 }
-
-enableValidation();
-
-
+/* настройки */
+enableValidation({
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+});

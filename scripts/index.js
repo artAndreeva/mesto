@@ -1,68 +1,86 @@
-function renderCard(card, container) {
-  container.prepend(card);
-}
-
+/* создать карточку */
 function createCard(image, text) {
   const cardTemplate = document.querySelector('#card').content;
   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
   const cardImage = cardElement.querySelector('.card__image');
   const cardText = cardElement.querySelector('.card__text');
-  const cardButton = cardElement.querySelector('.card__button');
-  const cardDelete = cardElement.querySelector('.card__delete');
   cardImage.src = image;
   cardImage.alt = text;
   cardText.textContent = text;
-  cardImage.addEventListener('click', () => {
-    openPopup(popupImageElement);
-    popupImage.src = cardImage.src;
-    popupImage.alt = cardImage.alt;
-    popupCaption.textContent = cardText.textContent;
-  });
-  cardButton.addEventListener('click', (evt) => {
-    evt.target.classList.toggle('card__button_active');
-  });
-  cardDelete.addEventListener('click', (evt) => {
-    evt.target.closest('.card').remove();
-  });
   return cardElement;
-}
+};
 
+/* поместить карточку */
+function renderCard(card, container) {
+  container.prepend(card);
+};
+
+/* галерея */
 initialCardsReverse.forEach(function (element) {
-  renderCard(createCard(element.link, element.name), cardGallery);
+  renderCard(createCard(element.link, element.name), cardGallery)
 });
 
+/* закрыть попап по Esc */
+function closePopupByEsc(evt) {
+  if (evt.key === 'Escape') {
+    closePopup(document.querySelector('.popup_opened'));
+  };
+};
+
+/* открыть попап */
 function openPopup(popupElement) {
   popupElement.classList.add('popup_opened');
-}
+  document.addEventListener('keydown', closePopupByEsc);
+};
 
+/* закрыть попап */
 function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
-}
+  document.removeEventListener('keydown', closePopupByEsc);
+};
 
+/* поставить лайк */
+function likePicture(evt) {
+  evt.target.classList.toggle('card__button_active');
+};
+
+/* удалить картинку */
+function deletePicture(evt) {
+  evt.target.closest('.card').remove();
+};
+
+/* создать попап картинки */
+function createPopupImage(evt) {
+  openPopup(popupImageElement);
+  popupImage.src = evt.target.src;
+  popupImage.alt = evt.target.alt;
+  popupCaption.textContent = evt.target.nextElementSibling.firstElementChild.textContent;
+};
+
+/* действия с галереей */
+cardGallery.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('card__button')) {
+    likePicture(evt);
+  } else if (evt.target.classList.contains('card__delete')) {
+    deletePicture(evt);
+  } else if (evt.target.classList.contains('card__image')) {
+    createPopupImage(evt);
+  };
+});
+
+/* сброс настроек */
 function undefineForm(evt) {
   evt.preventDefault();
-}
+};
 
+/* слушатель на кнопку Edit */
 profileEditElement.addEventListener('click', () => {
   openPopup(popupEditElement);
   inputName.value = profileNameElement.textContent;
   inputAbout.value = profileAboutElement.textContent;
 });
 
-profileAddElement.addEventListener('click', () => {
-  openPopup(popupAddElement);
-});
-
-popupCloseEditElement.addEventListener('click', () => {
-  closePopup(popupEditElement);
-});
-popupCloseAddElement.addEventListener('click', () => {
-  closePopup(popupAddElement);
-});
-popupCloseImageElement.addEventListener('click', () => {
-  closePopup(popupImageElement);
-});
-
+/* слушатель на сабмит формы Edit */
 formSubmitEditElement.addEventListener('submit', (evt) => {
   undefineForm(evt);
   profileNameElement.textContent = inputName.value;
@@ -70,9 +88,25 @@ formSubmitEditElement.addEventListener('submit', (evt) => {
   closePopup(popupEditElement);
 });
 
+
+/* слушатель на кнопку Add */
+profileAddElement.addEventListener('click', () => {
+  openPopup(popupAddElement);
+});
+
+/* слушатель на сабмит формы Add */
 formSubmitAddElement.addEventListener('submit', (evt) => {
   undefineForm(evt);
   renderCard(createCard(inputImageUrl.value, inputPlaceName.value), cardGallery);
   formSubmitAddElement.reset();
   closePopup(popupAddElement);
+});
+
+/* слушатель на закрытие */
+document.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('popup__close-button')) {
+    closePopup(evt.target.closest('.popup'));
+  } else if (evt.target.classList.contains('popup')) {
+    closePopup(evt.target);
+  };
 });

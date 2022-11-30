@@ -2,9 +2,6 @@ const profileEditElement = document.querySelector('.profile__edit-button');
 const popupEditElement = document.querySelector('.popup_edit');
 const profileAddElement = document.querySelector('.profile__add-button');
 const popupAddElement = document.querySelector('.popup_add');
-const popupCloseEditElement = document.querySelector('.popup__close-button_edit');
-const popupCloseAddElement = document.querySelector('.popup__close-button_add');
-const popupCloseImageElement = document.querySelector('.popup__close-button_image');
 const profileNameElement = document.querySelector('.profile__name');
 const profileAboutElement = document.querySelector('.profile__about');
 
@@ -15,17 +12,6 @@ const inputAbout = formSubmitEditElement.elements.about;
 const formSubmitAddElement = document.forms.add;
 const inputPlaceName = formSubmitAddElement.elements.picture;
 const inputImageUrl = formSubmitAddElement.elements.link;
-
-/* const formSubmitEditElement = document.querySelector('.popup__form_edit');
-const inputName = document.querySelector('.popup__field_name');
-const inputAbout = document.querySelector('.popup__field_about');
-
-const formSubmitAddElement = document.querySelector('.popup__form_add');
-const inputPlaceName = document.querySelector('.popup__field_place-name');
-const inputImageUrl = document.querySelector('.popup__field_image-url');
-
-const formSaveElement = document.querySelectorAll('.popup__save-button');
- */
 
 const cardGallery = document.querySelector('.gallery__list');
 const popupImageElement = document.querySelector('.popup_image');
