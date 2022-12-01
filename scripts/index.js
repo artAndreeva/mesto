@@ -15,7 +15,7 @@ function renderCard(card, container) {
   container.prepend(card);
 };
 
-/* галерея */
+/* инициация галерея */
 initialCardsReverse.forEach(function (element) {
   renderCard(createCard(element.link, element.name), cardGallery)
 });
@@ -27,16 +27,27 @@ function closePopupByEsc(evt) {
   };
 };
 
+/* закрыть попап по Click */
+function closePopupByClick(evt) {
+  if (evt.target.classList.contains('popup__close-button')) {
+    closePopup(evt.target.closest('.popup'));
+  } else if (evt.target.classList.contains('popup')) {
+    closePopup(evt.target);
+  };
+};
+
 /* открыть попап */
 function openPopup(popupElement) {
   popupElement.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupByEsc);
+  document.addEventListener('click', closePopupByClick)
 };
 
 /* закрыть попап */
 function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupByEsc);
+  document.removeEventListener('click', closePopupByClick)
 };
 
 /* поставить лайк */
@@ -68,7 +79,7 @@ cardGallery.addEventListener('click', (evt) => {
   };
 });
 
-/* сброс настроек */
+/* сброс настроек формы */
 function undefineForm(evt) {
   evt.preventDefault();
 };
@@ -88,7 +99,6 @@ formSubmitEditElement.addEventListener('submit', (evt) => {
   closePopup(popupEditElement);
 });
 
-
 /* слушатель на кнопку Add */
 profileAddElement.addEventListener('click', () => {
   openPopup(popupAddElement);
@@ -102,11 +112,3 @@ formSubmitAddElement.addEventListener('submit', (evt) => {
   closePopup(popupAddElement);
 });
 
-/* слушатель на закрытие */
-document.addEventListener('click', (evt) => {
-  if (evt.target.classList.contains('popup__close-button')) {
-    closePopup(evt.target.closest('.popup'));
-  } else if (evt.target.classList.contains('popup')) {
-    closePopup(evt.target);
-  };
-});

@@ -43,6 +43,7 @@ function hasInvalidInput(inputList) {
     return !inputElement.validity.valid;
   });
 }
+
 /* переключатель кнопки */
 const toggleButtonState = (inputList, buttonElement, selectData) => {
   if (hasInvalidInput(inputList)) {
@@ -53,6 +54,7 @@ const toggleButtonState = (inputList, buttonElement, selectData) => {
     buttonElement.removeAttribute('disabled');
   };
 }
+
 /* доступ к валидации */
 function enableValidation(selectData) {
   const formList = Array.from(document.querySelectorAll(selectData.formSelector));
@@ -60,6 +62,7 @@ function enableValidation(selectData) {
     setEventListeners(formElement, selectData);
   });
 }
+
 /* настройки */
 enableValidation({
   formSelector: '.popup__form',
