@@ -47,8 +47,7 @@ function hasInvalidInput(inputList) {
 /* переключатель кнопки */
 const toggleButtonState = (inputList, buttonElement, selectData) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(selectData.inactiveButtonClass);
-    buttonElement.setAttribute('disabled', true);
+    disableButton(buttonElement, selectData);
   } else {
     buttonElement.classList.remove(selectData.inactiveButtonClass);
     buttonElement.removeAttribute('disabled');
