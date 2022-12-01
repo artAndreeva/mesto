@@ -4,7 +4,7 @@
 @import url(../blocks/page/page.css);
 /* logo */
 @import url(../blocks/logo/logo.css);
-/* link */
+/* button */
 @import url(../blocks/button/button.css);
 @import url(../blocks/button/_opacity/button_opacity_page.css);
 @import url(../blocks/button/_opacity/button_opacity_heart.css);
