@@ -87,7 +87,7 @@ profileEditElement.addEventListener('click', () => {
   openPopup(popupEditElement);
   inputName.value = profileNameElement.textContent;
   inputAbout.value = profileAboutElement.textContent;
-  disableButton(document.querySelector('.popup__button'), );
+  disableButton(buttonEditSubmit, selectData);
 });
 
 /* слушатель на сабмит формы Edit */
@@ -101,7 +101,7 @@ formSubmitEditElement.addEventListener('submit', (evt) => {
 /* слушатель на кнопку Add */
 profileAddElement.addEventListener('click', () => {
   openPopup(popupAddElement);
-  disableButton();
+  disableButton(buttonAddSubmit, selectData);
 });
 
 /* слушатель на сабмит формы Add */

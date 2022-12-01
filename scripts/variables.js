@@ -13,6 +13,8 @@ const formSubmitAddElement = document.forms.add;
 const inputPlaceName = formSubmitAddElement.elements.picture;
 const inputImageUrl = formSubmitAddElement.elements.link;
 
+const buttonEditSubmit = popupEditElement.querySelector('.popup__button');
+const buttonAddSubmit = popupAddElement.querySelector('.popup__button');
 const cardGallery = document.querySelector('.gallery__list');
 const popupImageElement = document.querySelector('.popup_image');
 const popupImage = document.querySelector('.popup__image');
@@ -44,3 +46,12 @@ const initialCards = [
   }
 ];
 const initialCardsReverse = initialCards.reverse();
+
+const selectData = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+}

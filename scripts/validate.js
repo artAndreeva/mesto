@@ -47,13 +47,14 @@ function hasInvalidInput(inputList) {
 /* переключатель кнопки */
 const toggleButtonState = (inputList, buttonElement, selectData) => {
   if (hasInvalidInput(inputList)) {
-    disableButton(buttonElement, selectData);
+    buttonElement.classList.add(selectData.inactiveButtonClass);
+    buttonElement.setAttribute('disabled', true);
   } else {
     buttonElement.classList.remove(selectData.inactiveButtonClass);
     buttonElement.removeAttribute('disabled');
   };
 }
-
+/* выключение кнопки */
 const disableButton = (buttonElement, selectData) => {
   buttonElement.classList.add(selectData.inactiveButtonClass);
   buttonElement.setAttribute('disabled', true);
@@ -68,11 +69,4 @@ function enableValidation(selectData) {
 };
 
 /* настройки */
-enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-});
+enableValidation(selectData);
