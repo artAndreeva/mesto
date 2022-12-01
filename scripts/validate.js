@@ -42,18 +42,22 @@ function hasInvalidInput(inputList) {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
-}
+};
 
 /* переключатель кнопки */
 const toggleButtonState = (inputList, buttonElement, selectData) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(selectData.inactiveButtonClass);
-    buttonElement.setAttribute('disabled', true);
+    disableButton(buttonElement, selectData);
   } else {
     buttonElement.classList.remove(selectData.inactiveButtonClass);
     buttonElement.removeAttribute('disabled');
   };
 }
+
+const disableButton = (buttonElement, selectData) => {
+  buttonElement.classList.add(selectData.inactiveButtonClass);
+  buttonElement.setAttribute('disabled', true);
+};
 
 /* доступ к валидации */
 function enableValidation(selectData) {
@@ -61,7 +65,7 @@ function enableValidation(selectData) {
   formList.forEach((formElement) => {
     setEventListeners(formElement, selectData);
   });
-}
+};
 
 /* настройки */
 enableValidation({
