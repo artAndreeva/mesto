@@ -17,17 +17,17 @@ function createCard(image, text) {
   });
 
   return cardElement;
-};
+}
 
 /* поставить лайк */
 function likePicture(evt) {
   evt.target.classList.toggle('card__button_active');
-};
+}
 
 /* удалить картинку */
 function deletePicture(evt) {
   evt.target.closest('.card').remove();
-};
+}
 
 /* создать попап картинки */
 function createPopupImage(image, text) {
@@ -35,12 +35,12 @@ function createPopupImage(image, text) {
   popupImage.alt = image.alt;
   popupCaption.textContent = text.textContent;
   openPopup(popupImageElement);
-};
+}
 
 /* поместить карточку */
 function renderCard(card, container) {
   container.prepend(card);
-};
+}
 
 /* инициация галерея */
 initialCardsReverse.forEach(function (element) {
@@ -52,7 +52,7 @@ function closePopupByEsc(evt) {
   if (evt.key === 'Escape') {
     closePopup(document.querySelector('.popup_opened'));
   };
-};
+}
 
 /* закрыть попап по Click */
 function closePopupByClick(evt) {
@@ -61,32 +61,44 @@ function closePopupByClick(evt) {
   } else if (evt.target.classList.contains('popup')) {
     closePopup(evt.target);
   };
-};
+}
 
 /* открыть попап */
 function openPopup(popupElement) {
   popupElement.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupByEsc);
   document.addEventListener('click', closePopupByClick)
-};
+}
 
 /* закрыть попап */
 function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupByEsc);
   document.removeEventListener('click', closePopupByClick)
-};
+}
 
 /* сброс настроек формы */
 function undefineForm(evt) {
   evt.preventDefault();
-};
+}
+
+function removeError(popup) {
+  const inputList = popup.querySelectorAll('.popup__input');
+  const inputError = popup.querySelectorAll('.popup__error');
+  inputList.forEach((input) => {
+    input.classList.remove('popup__input_type_error');
+  });
+  inputError.forEach((inputError) => {
+    inputError.textContent = '';
+  });
+}
 
 /* слушатель на кнопку Edit */
 profileEditElement.addEventListener('click', () => {
   openPopup(popupEditElement);
   inputName.value = profileNameElement.textContent;
   inputAbout.value = profileAboutElement.textContent;
+  removeError(popupEditElement);
   disableButton(buttonEditSubmit, selectData);
 });
 
@@ -101,6 +113,7 @@ formSubmitEditElement.addEventListener('submit', (evt) => {
 /* слушатель на кнопку Add */
 profileAddElement.addEventListener('click', () => {
   openPopup(popupAddElement);
+  removeError(popupAddElement);
   disableButton(buttonAddSubmit, selectData);
 });
 

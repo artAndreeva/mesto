@@ -5,7 +5,7 @@ const showInputError = (formElement, inputElement, errorMessage, selectData) => 
   inputElement.classList.add(selectData.inputErrorClass);
   errorElement.classList.add(selectData.errorClass);
   errorElement.textContent = errorMessage;
-};
+}
 
 /* нет ошибки */
 const hideInputError = (formElement, inputElement, selectData) => {
@@ -13,7 +13,7 @@ const hideInputError = (formElement, inputElement, selectData) => {
   inputElement.classList.remove(selectData.inputErrorClass);
   errorElement.classList.remove(selectData.errorClass);
   errorElement.textContent = '';
-};
+}
 
 /* переключатель ошибки */
 const checkInputValidity = (formElement, inputElement, selectData) => {
@@ -22,7 +22,7 @@ const checkInputValidity = (formElement, inputElement, selectData) => {
   } else {
     hideInputError(formElement, inputElement, selectData);
   }
-};
+}
 
 /* настройка слушателей */
 const setEventListeners = (formElement, selectData) => {
@@ -42,7 +42,7 @@ function hasInvalidInput(inputList) {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
-};
+}
 
 /* переключатель кнопки */
 const toggleButtonState = (inputList, buttonElement, selectData) => {
@@ -57,7 +57,7 @@ const toggleButtonState = (inputList, buttonElement, selectData) => {
 const disableButton = (buttonElement, selectData) => {
   buttonElement.classList.add(selectData.inactiveButtonClass);
   buttonElement.setAttribute('disabled', true);
-};
+}
 
 /* доступ к валидации */
 function enableValidation(selectData) {
@@ -65,7 +65,7 @@ function enableValidation(selectData) {
   formList.forEach((formElement) => {
     setEventListeners(formElement, selectData);
   });
-};
+}
 
 /* настройки */
 enableValidation(selectData);
