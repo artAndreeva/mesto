@@ -51,29 +51,13 @@
           <button class="popup__close-button button button_opacity_page" type="button"></button>
           <h3 class="popup__title">Редактировать профиль</h3>
           <div class="popup__field">
-            <input
-              class="popup__input"
-              id="input-name"
-              type="text"
-              name="name"
-              value=""
-              placeholder="Имя"
-              required
-              minlength="2"
-              maxlength="40">
+            <input class="popup__input" id="input-name" type="text" name="name" value="" placeholder="Имя" required
+              minlength="2" maxlength="40">
             <span class="input-name-error popup__error"></span>
           </div>
           <div class="popup__field">
-            <input
-              class="popup__input"
-              id="input-about"
-              type="text"
-              name="about"
-              value=""
-              placeholder="О себе"
-              required
-              minlength="2"
-              maxlength="200">
+            <input class="popup__input" id="input-about" type="text" name="about" value="" placeholder="О себе" required
+              minlength="2" maxlength="200">
             <span class="input-about-error popup__error"></span>
           </div>
           <button type="submit" class="popup__button button button_opacity_save">Сохранить</button>
@@ -87,25 +71,12 @@
           <button class="popup__close-button button button_opacity_page" type="button"></button>
           <h3 class="popup__title">Новое место</h3>
           <div class="popup__field">
-            <input class="popup__input"
-              id="input-picture"
-              type="text"
-              name="picture"
-              value=""
-              placeholder="Название"
-              required
-              minlength="2"
-              maxlength="30">
+            <input class="popup__input" id="input-picture" type="text" name="picture" value="" placeholder="Название"
+              required minlength="2" maxlength="30">
             <span class="input-picture-error popup__error"></span>
           </div>
           <div class="popup__field">
-            <input
-              class="popup__input"
-              id="input-link"
-              type="url"
-              name="link"
-              value=""
-              placeholder="Ссылка на картинку"
+            <input class="popup__input" id="input-link" type="url" name="link" value="" placeholder="Ссылка на картинку"
               required>
             <span class="input-link-error popup__error"></span>
           </div>
@@ -126,7 +97,7 @@
 
   </div>
 
-  <template id="card">
+  <template class="card-template card-template_type_default">
     <li class="gallery__item card">
       <button class="card__delete button button_opacity_page" aria-label="Удалить" type="button"></button>
       <img src="#" alt="Изображение карточки" class="card__image button">
@@ -137,9 +108,7 @@
     </li>
   </template>
 
-  <script src="./scripts/variables.js" defer></script>
-  <script src="./scripts/index.js" defer></script>
-  <script src="./scripts/validate.js" defer></script>
+  <script type="module" src="./scripts/index.js"></script>
 </body>
 
 </html>

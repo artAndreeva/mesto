@@ -1,24 +1,24 @@
-const profileEditElement = document.querySelector('.profile__edit-button');
-const popupEditElement = document.querySelector('.popup_edit');
-const profileAddElement = document.querySelector('.profile__add-button');
-const popupAddElement = document.querySelector('.popup_add');
-const profileNameElement = document.querySelector('.profile__name');
-const profileAboutElement = document.querySelector('.profile__about');
+export const profileEditElement = document.querySelector('.profile__edit-button');
+export const popupEditElement = document.querySelector('.popup_edit');
+export const profileAddElement = document.querySelector('.profile__add-button');
+export const popupAddElement = document.querySelector('.popup_add');
+export const profileNameElement = document.querySelector('.profile__name');
+export const profileAboutElement = document.querySelector('.profile__about');
 
-const formSubmitEditElement = document.forms.edit;
-const inputName = formSubmitEditElement.elements.name;
-const inputAbout = formSubmitEditElement.elements.about;
+export const formSubmitEditElement = document.forms.edit;
+export const inputName = formSubmitEditElement.elements.name;
+export const inputAbout = formSubmitEditElement.elements.about;
 
-const formSubmitAddElement = document.forms.add;
-const inputPlaceName = formSubmitAddElement.elements.picture;
-const inputImageUrl = formSubmitAddElement.elements.link;
+export const formSubmitAddElement = document.forms.add;
+export const inputPlaceName = formSubmitAddElement.elements.picture;
+export const inputImageUrl = formSubmitAddElement.elements.link;
 
-const buttonEditSubmit = popupEditElement.querySelector('.popup__button');
-const buttonAddSubmit = popupAddElement.querySelector('.popup__button');
-const cardGallery = document.querySelector('.gallery__list');
-const popupImageElement = document.querySelector('.popup_image');
-const popupImage = document.querySelector('.popup__image');
-const popupCaption = document.querySelector('.popup__caption');
+export const buttonEditSubmit = popupEditElement.querySelector('.popup__button');
+export const buttonAddSubmit = popupAddElement.querySelector('.popup__button');
+export const cardGallery = document.querySelector('.gallery__list');
+export const popupImageElement = document.querySelector('.popup_image');
+export const popupImage = document.querySelector('.popup__image');
+export const popupCaption = document.querySelector('.popup__caption');
 const initialCards = [
   {
     name: 'Архыз',
@@ -45,9 +45,9 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-const initialCardsReverse = initialCards.reverse();
+export const initialCardsReverse = initialCards.reverse();
 
-const selectData = {
+export const selectData = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
