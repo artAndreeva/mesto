@@ -100,16 +100,26 @@ formSubmitEditElement.addEventListener('submit', (evt) => {
 profileAddElement.addEventListener('click', () => {
   openPopup(popupAddElement);
   removeError(popupAddElement);
-/*   disableButton(buttonAddSubmit, selectData);
- */});
+  disableButton(buttonAddSubmit, selectData);
+});
+
+const disableButton = (buttonElement, selectData) => {
+  buttonElement.classList.add(selectData.inactiveButtonClass);
+  buttonElement.setAttribute('disabled', true);
+}
 
 /* слушатель на сабмит формы Add */
 formSubmitAddElement.addEventListener('submit', (evt) => {
   undefineForm(evt);
-  renderCard(createCard(inputImageUrl.value, inputPlaceName.value), cardGallery);
+  const link = inputImageUrl.value;
+  const name = inputPlaceName.value;
+  const card = new Card(({ link, name }), '.card-template_type_default');
+  renderCard(card.createCard(), cardGallery);
   closePopup(popupAddElement);
   formSubmitAddElement.reset();
 });
+
+
 
 const validationAddForm = new FormValidator(selectData, formSubmitAddElement);
 
