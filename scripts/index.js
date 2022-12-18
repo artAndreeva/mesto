@@ -19,7 +19,7 @@ import {
 } from './variables.js';
 
 import { Card } from './Card.js';
-/* import { FormValidator } from './FormValidator.js'; */
+import { FormValidator } from './FormValidator.js';
 
 /* поместить карточку */
 function renderCard(card, container) {
@@ -100,8 +100,8 @@ formSubmitEditElement.addEventListener('submit', (evt) => {
 profileAddElement.addEventListener('click', () => {
   openPopup(popupAddElement);
   removeError(popupAddElement);
-  disableButton(buttonAddSubmit, selectData);
-});
+/*   disableButton(buttonAddSubmit, selectData);
+ */});
 
 /* слушатель на сабмит формы Add */
 formSubmitAddElement.addEventListener('submit', (evt) => {
@@ -111,3 +111,10 @@ formSubmitAddElement.addEventListener('submit', (evt) => {
   formSubmitAddElement.reset();
 });
 
+const validationAddForm = new FormValidator(selectData, formSubmitAddElement);
+
+validationAddForm.enableValidation();
+
+const validationEditForm = new FormValidator(selectData, formSubmitEditElement);
+
+validationEditForm.enableValidation();

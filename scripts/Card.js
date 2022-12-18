@@ -19,42 +19,50 @@ export class Card {
             .content
             .querySelector('.card')
             .cloneNode(true);
+
         return cardElement;
     }
 
-    createCard() {
-        this._element = this._getTemplate();
-        this._setEventListeners();
+    _setData() {
         this._element.querySelector('.card__image').src = this._image;
         this._element.querySelector('.card__image').alt = this._imageCaption;
         this._element.querySelector('.card__text').textContent = this._imageCaption;
+
         return this._element;
     }
 
-    _setEventListeners() {
-        this._element.querySelector('.card__button').addEventListener('click', () => {
-            this.likePicture();
-        });
-        this._element.querySelector('.card__delete').addEventListener('click', () => {
-            this.deletePicture();
-        });
-        this._element.querySelector('.card__image').addEventListener('click', () => {
-            this.createImagePopup();
-        });
-    }
-
-    likePicture() {
+    _likeCard() {
         this._element.querySelector('.card__button').classList.toggle('card__button_active');
     }
 
-    deletePicture() {
-        this._element.querySelector('.card__button').closest('.card').remove();
+    _deleteCard() {
+        this._element.remove();
     }
 
-    createImagePopup() {
+    _createCardPopup() {
         popupImage.src = this._image;
         popupImage.alt = this._imageCaption;
         popupCaption.textContent = this._imageCaption;
         openPopup(popupImageElement);
+    }
+
+    _setEventListeners() {
+        this._element.querySelector('.card__button').addEventListener('click', () => {
+            this._likeCard();
+        });
+        this._element.querySelector('.card__delete').addEventListener('click', () => {
+            this._deleteCard();
+        });
+        this._element.querySelector('.card__image').addEventListener('click', () => {
+            this._createCardPopup();
+        });
+    }
+
+    createCard() {
+        this._element = this._getTemplate();
+        this._setData();
+        this._setEventListeners();
+
+        return this._element;
     }
 }
