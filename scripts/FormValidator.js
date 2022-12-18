@@ -4,18 +4,19 @@ export class FormValidator {
         this._formElement = formElement;
     }
 
-    _toggleButtonState() {
-        if (this._hasInvalidInput()) {
-            this._disableButton();
-        } else {
-            this._buttonElement.classList.remove(this._selectData.inactiveButtonClass);
-            this._buttonElement.removeAttribute('disabled');
-        };
+
+    _showInputError(inputElement) {
+        this._errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
+        inputElement.classList.add(this._selectData.inputErrorClass);
+        this._errorElement.classList.add(this._selectData.errorClass);
+        this._errorElement.textContent = inputElement.validationMessage;
     }
 
-    _disableButton() {
-        this._buttonElement.classList.add(this._selectData.inactiveButtonClass);
-        this._buttonElement.setAttribute('disabled', true);
+    _hideInputError(inputElement) {
+        this._errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
+        inputElement.classList.remove(this._selectData.inputErrorClass);
+        this._errorElement.classList.remove(this._selectData.errorClass);
+        this._errorElement.textContent = '';
     }
 
     _hasInvalidInput() {
@@ -32,18 +33,18 @@ export class FormValidator {
         }
     }
 
-    _showInputError(inputElement) {
-        this._errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
-        inputElement.classList.add(this._selectData.inputErrorClass);
-        this._errorElement.classList.add(this._selectData.errorClass);
-        this._errorElement.textContent = inputElement.validationMessage;
+    _disableButton() {
+        this._buttonElement.classList.add(this._selectData.inactiveButtonClass);
+        this._buttonElement.setAttribute('disabled', true);
     }
 
-    _hideInputError(inputElement) {
-        this._errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
-        inputElement.classList.remove(this._selectData.inputErrorClass);
-        this._errorElement.classList.remove(this._selectData.errorClass);
-        this._errorElement.textContent = '';
+    _toggleButtonState() {
+        if (this._hasInvalidInput()) {
+            this._disableButton();
+        } else {
+            this._buttonElement.classList.remove(this._selectData.inactiveButtonClass);
+            this._buttonElement.removeAttribute('disabled');
+        };
     }
 
     _setEventListeners() {
