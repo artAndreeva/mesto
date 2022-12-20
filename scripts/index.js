@@ -30,7 +30,7 @@ function renderCard(card, container) {
   container.prepend(card);
 }
 
-function createNewCard(element, selector, createCardPopup) {
+function createNewCard(element, selector) {
   const newCard = new Card(element, selector, createCardPopup);
   return newCard;
 }
@@ -103,38 +103,18 @@ function setEditPopupSubmitValue() {
   profileAboutElement.textContent = inputAbout.value;
 }
 
-function createValidation(selectData, formElement) {
-  const formValidation = new FormValidator(selectData, formElement);
-  formValidation.enableValidation();
-}
+const EditFormValidation = new FormValidator(selectData, formSubmitEditElement);
+EditFormValidation.enableValidation();
 
-createValidation(selectData, formSubmitEditElement)
-createValidation(selectData, formSubmitAddElement)
-
-
-function removeError(popup) {
-  const inputList = popup.querySelectorAll('.popup__input');
-  const inputError = popup.querySelectorAll('.popup__error');
-  inputList.forEach((input) => {
-    input.classList.remove('popup__input_type_error');
-  });
-  inputError.forEach((inputError) => {
-    inputError.textContent = '';
-  });
-}
-
-function disableButton(buttonElement, selectData) {
-  buttonElement.classList.add(selectData.inactiveButtonClass);
-  buttonElement.setAttribute('disabled', true);
-}
+const AddFormValidation = new FormValidator(selectData, formSubmitAddElement);
+AddFormValidation.enableValidation();
 
 // слушатели
 
 profileEditElement.addEventListener('click', () => {
   openPopup(popupEditElement);
   setEditPopupOpenValue();
-  removeError(popupEditElement);
-  disableButton(buttonEditSubmit, selectData);
+  EditFormValidation.resetValidation();
 });
 
 formSubmitEditElement.addEventListener('submit', (evt) => {
@@ -145,8 +125,7 @@ formSubmitEditElement.addEventListener('submit', (evt) => {
 
 profileAddElement.addEventListener('click', () => {
   openPopup(popupAddElement);
-  removeError(popupAddElement);
-  disableButton(buttonAddSubmit, selectData);
+  AddFormValidation.resetValidation();
 });
 
 formSubmitAddElement.addEventListener('submit', (evt) => {
