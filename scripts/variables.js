@@ -19,7 +19,7 @@ export const cardGallery = document.querySelector('.gallery__list');
 export const popupImageElement = document.querySelector('.popup_image');
 export const popupImage = document.querySelector('.popup__image');
 export const popupCaption = document.querySelector('.popup__caption');
-const initialCards = [
+export const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -45,7 +45,6 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-export const initialCardsReverse = initialCards.reverse();
 
 export const selectData = {
   formSelector: '.popup__form',
