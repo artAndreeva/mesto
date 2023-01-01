@@ -19,38 +19,46 @@ import {
   popupCaption,
   popupImageElement,
   selectData
-} from './variables.js';
+} from '../utils/variables.js';
 
-import { Card } from './Card.js';
-import { FormValidator } from './FormValidator.js';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import Section from '../components/Section.js';
+/* import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js'; */
+
 
 // галерея
 
-function renderCard(card, container) {
+
+const cardList = new Section({
+  items: initialCards,
+  renderer: (galleryItem) => {
+    const card = new Card(galleryItem, '.card-template_type_default', createCardPopup);
+    const cardElement = card.createCard();
+    cardList.addItem(cardElement);
+  }
+}, cardGallery);
+
+
+cardList.renderItems();
+
+/* function renderCard(card, container) {
   container.prepend(card);
 }
 
 function createNewCard(element, selector) {
   const newCard = new Card(element, selector, createCardPopup);
   return newCard;
-}
+} */
 
-function getInitialCards() {
-  const initialCardsReverse = initialCards.reverse();
-  initialCardsReverse.forEach((element) => {
-    const card = createNewCard(element, '.card-template_type_default', createCardPopup);
-    renderCard(card.createCard(), cardGallery);
-  });
-}
-
-getInitialCards()
-
-function createNewUserCard() {
+/* function createNewUserCard() {
   const link = inputImageUrl.value;
   const name = inputPlaceName.value;
   const card = createNewCard(({ link, name }), '.card-template_type_default', createCardPopup);
   renderCard(card.createCard(), cardGallery);
-}
+} */
 
 // попапы
 
