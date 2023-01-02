@@ -1,24 +1,21 @@
 export const profileEditElement = document.querySelector('.profile__edit-button');
-export const popupEditElement = document.querySelector('.popup_edit');
 export const profileAddElement = document.querySelector('.profile__add-button');
-export const popupAddElement = document.querySelector('.popup_add');
-export const profileNameElement = document.querySelector('.profile__name');
-export const profileAboutElement = document.querySelector('.profile__about');
+export const nameElementSelector = '.profile__name';
+export const aboutElementSelector = '.profile__about';
 
-export const formSubmitEditElement = document.forms.edit;
-export const inputName = formSubmitEditElement.elements.name;
-export const inputAbout = formSubmitEditElement.elements.about;
+export const editForm = document.forms.edit;
+export const inputName = editForm.elements.name;
+export const inputAbout = editForm.elements.about;
 
-export const formSubmitAddElement = document.forms.add;
-export const inputPlaceName = formSubmitAddElement.elements.picture;
-export const inputImageUrl = formSubmitAddElement.elements.link;
+export const addForm = document.forms.add;
+export const inputPicture = addForm.elements.picture;
+export const inputLink = addForm.elements.link;
 
-export const buttonEditSubmit = popupEditElement.querySelector('.popup__button');
-export const buttonAddSubmit = popupAddElement.querySelector('.popup__button');
-export const cardGallery = document.querySelector('.gallery__list');
-export const popupImageElement = document.querySelector('.popup_image');
-export const popupImage = document.querySelector('.popup__image');
-export const popupCaption = document.querySelector('.popup__caption');
+export const cardGallerySelector = '.gallery__list';
+export const imagePopupSelector = '.popup_image';
+export const addPopupSelector = '.popup_add';
+export const editPopupSelector = '.popup_edit';
+
 export const initialCards = [
   {
     name: 'Архыз',
@@ -46,7 +43,7 @@ export const initialCards = [
   }
 ];
 
-export const selectData = {
+export const validationData = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',

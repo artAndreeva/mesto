@@ -1,9 +1,9 @@
 export default class FormValidator {
-  constructor(selectData, formElement) {
-    this._selectData = selectData;
+  constructor(validationData, formElement) {
+    this._validationData = validationData;
     this._formElement = formElement;
-    this._inputList = Array.from(this._formElement.querySelectorAll(this._selectData.inputSelector));
-    this._buttonElement = this._formElement.querySelector(this._selectData.submitButtonSelector);
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._validationData.inputSelector));
+    this._buttonElement = this._formElement.querySelector(this._validationData.submitButtonSelector);
   }
 
   _getErrorElement(inputElement) {
@@ -11,14 +11,14 @@ export default class FormValidator {
   }
 
   _showInputError(inputElement) {
-    inputElement.classList.add(this._selectData.inputErrorClass);
-    this._errorElement.classList.add(this._selectData.errorClass);
+    inputElement.classList.add(this._validationData.inputErrorClass);
+    this._errorElement.classList.add(this._validationData.errorClass);
     this._errorElement.textContent = inputElement.validationMessage;
   }
 
   _hideInputError(inputElement) {
-    inputElement.classList.remove(this._selectData.inputErrorClass);
-    this._errorElement.classList.remove(this._selectData.errorClass);
+    inputElement.classList.remove(this._validationData.inputErrorClass);
+    this._errorElement.classList.remove(this._validationData.errorClass);
     this._errorElement.textContent = '';
   }
 
@@ -42,13 +42,13 @@ export default class FormValidator {
     if (this._hasInvalidInput()) {
       this._disableButton();
     } else {
-      this._buttonElement.classList.remove(this._selectData.inactiveButtonClass);
+      this._buttonElement.classList.remove(this._validationData.inactiveButtonClass);
       this._buttonElement.removeAttribute('disabled');
     };
   }
 
   _disableButton() {
-    this._buttonElement.classList.add(this._selectData.inactiveButtonClass);
+    this._buttonElement.classList.add(this._validationData.inactiveButtonClass);
     this._buttonElement.setAttribute('disabled', true);
   }
 
