@@ -7,14 +7,13 @@ import {
   addForm,
   inputName,
   inputAbout,
-  inputPicture,
-  inputLink,
   cardGallerySelector,
   initialCards,
   imagePopupSelector,
   addPopupSelector,
   editPopupSelector,
-  validationData
+  validationData,
+  templateSelector
 } from '../utils/variables.js';
 
 import Card from '../components/Card.js';
@@ -26,80 +25,27 @@ import UserInfo from '../components/UserInfo.js';
 
 // карточки
 
+const initialCardsReverse = initialCards.reverse();
+
+function handleCardClick(link, name) {
+  imagePopup.open(link, name);
+}
+
+function createNewCard(element) {
+  const newCard = new Card(element, templateSelector, handleCardClick);
+  const cardElement = newCard.createCard();
+  return cardElement;
+}
+
 const cardList = new Section({
-  items: initialCards,
-  renderer: (item) => {
-    const card = new Card(item, '.card-template_type_default',
-      (link, name) => {
-        const popupWithImage = new PopupWithImage(imagePopupSelector);
-        popupWithImage.open(link, name);
-        popupWithImage.setEventListeners();
-      });
-    const cardElement = card.createCard();
-    cardList.addItem(cardElement);
+  items: initialCardsReverse,
+  renderer: (element) => {
+    const initialCards = createNewCard(element)
+    cardList.addItem(initialCards);
   }
 }, cardGallerySelector);
 
 cardList.renderItems();
-
-
-
-
-
-/* function renderCard(card, container) {
-  container.prepend(card);
-}
-
-function createNewCard(element, selector) {
-  const newCard = new Card(element, selector, createCardPopup);
-  return newCard;
-}
-
-function getInitialCards() {
-  const initialCardsReverse = initialCards.reverse();
-  initialCardsReverse.forEach((element) => {
-    const card = createNewCard(element, '.card-template_type_default', createCardPopup);
-    renderCard(card.createCard(), cardGallery);
-  });
-}
-
-getInitialCards()
-
-function createNewUserCard() {
-  const link = inputImageUrl.value;
-  const name = inputPlaceName.value;
-  const card = createNewCard(({ link, name }), '.card-template_type_default', createCardPopup);
-  renderCard(card.createCard(), cardGallery);
-}
-
-// формы
-
-function setEditPopupOpenValue() {
-  inputName.value = profileNameElement.textContent;
-  inputAbout.value = profileAboutElement.textContent;
-}
-
-function setEditPopupSubmitValue() {
-  profileNameElement.textContent = inputName.value;
-  profileAboutElement.textContent = inputAbout.value;
-}
-
-// слушатели
-
-formSubmitEditElement.addEventListener('submit', (evt) => {
-  undefineForm(evt);
-  setEditPopupSubmitValue();
-  closePopup(popupEditElement);
-});
-
-
-formSubmitAddElement.addEventListener('submit', (evt) => {
-  undefineForm(evt);
-  createNewUserCard()
-  closePopup(popupAddElement);
-  formSubmitAddElement.reset();
-});
-*/
 
 // валидация
 
@@ -118,9 +64,14 @@ const userInfo = new UserInfo({
 
 // попапы
 
+const imagePopup = new PopupWithImage(imagePopupSelector);
+imagePopup.setEventListeners();
+
 const addPopup = new PopupWithForm(addPopupSelector,
   (formData) => {
-
+    const userCard = createNewCard(formData)
+    cardList.addItem(userCard);
+    addPopup.close();
   }
 );
 addPopup.setEventListeners();
@@ -128,6 +79,7 @@ addPopup.setEventListeners();
 const editPopup = new PopupWithForm(editPopupSelector,
   (formData) => {
     userInfo.setUserInfo(formData);
+    editPopup.close();
   }
 );
 editPopup.setEventListeners();
@@ -141,7 +93,7 @@ profileAddElement.addEventListener('click', () => {
 
 profileEditElement.addEventListener('click', () => {
   const info = userInfo.getUserInfo();
-  inputName.value = info.name;
+  inputName.value = info.username;
   inputAbout.value = info.about;
   editFormValidation.resetValidation();
   editPopup.open();

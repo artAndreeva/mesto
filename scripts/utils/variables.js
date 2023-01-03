@@ -1,20 +1,19 @@
 export const profileEditElement = document.querySelector('.profile__edit-button');
 export const profileAddElement = document.querySelector('.profile__add-button');
-export const nameElementSelector = '.profile__name';
+export const nameElementSelector = '.profile__username';
 export const aboutElementSelector = '.profile__about';
 
 export const editForm = document.forms.edit;
-export const inputName = editForm.elements.name;
+export const inputName = editForm.elements.username;
 export const inputAbout = editForm.elements.about;
 
 export const addForm = document.forms.add;
-export const inputPicture = addForm.elements.picture;
-export const inputLink = addForm.elements.link;
 
 export const cardGallerySelector = '.gallery__list';
 export const imagePopupSelector = '.popup_image';
 export const addPopupSelector = '.popup_add';
 export const editPopupSelector = '.popup_edit';
+export const templateSelector = '.card-template_type_default';
 
 export const initialCards = [
   {

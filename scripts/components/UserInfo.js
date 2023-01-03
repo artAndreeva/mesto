@@ -8,14 +8,14 @@ export default class UserInfo {
 
   getUserInfo() {
     const info = {
-      name: this._name.textContent,
+      username: this._name.textContent,
       about: this._about.textContent
     }
     return info;
   }
 
   setUserInfo(info) {
-    this._name.textContent = info.name;
+    this._name.textContent = info.username;
     this._about.textContent = info.about;
   }
 }
