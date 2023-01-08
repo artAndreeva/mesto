@@ -12,8 +12,8 @@ import {
   cardGallerySelector,
   initialCards,
   imagePopupSelector,
-  addPopupSelector,
-  editPopupSelector,
+  popupAddCardSelector,
+  popupEditProfileSelector,
   validationData,
   templateSelector
 } from '../utils/variables.js';
@@ -69,7 +69,7 @@ const userInfo = new UserInfo({
 const imagePopup = new PopupWithImage(imagePopupSelector);
 imagePopup.setEventListeners();
 
-const popupAddCard = new PopupWithForm(addPopupSelector,
+const popupAddCard = new PopupWithForm(popupAddCardSelector,
   (formData) => {
     const userCard = createNewCard(formData)
     cardList.addItem(userCard);
@@ -78,7 +78,7 @@ const popupAddCard = new PopupWithForm(addPopupSelector,
 );
 popupAddCard.setEventListeners();
 
-const popupEditProfile = new PopupWithForm(editPopupSelector,
+const popupEditProfile = new PopupWithForm(popupEditProfileSelector,
   (formData) => {
     userInfo.setUserInfo(formData);
     popupEditProfile.close();

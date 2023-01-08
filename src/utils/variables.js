@@ -11,8 +11,8 @@ export const addForm = document.forms.add;
 
 export const cardGallerySelector = '.gallery__list';
 export const imagePopupSelector = '.popup_image';
-export const addPopupSelector = '.popup_add';
-export const editPopupSelector = '.popup_edit';
+export const popupAddCardSelector = '.popup_add';
+export const popupEditProfileSelector = '.popup_edit';
 export const templateSelector = '.card-template_type_default';
 
 export const initialCards = [
