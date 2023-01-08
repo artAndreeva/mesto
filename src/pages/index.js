@@ -69,28 +69,28 @@ const userInfo = new UserInfo({
 const imagePopup = new PopupWithImage(imagePopupSelector);
 imagePopup.setEventListeners();
 
-const addPopup = new PopupWithForm(addPopupSelector,
+const popupAddCard = new PopupWithForm(addPopupSelector,
   (formData) => {
     const userCard = createNewCard(formData)
     cardList.addItem(userCard);
-    addPopup.close();
+    popupAddCard.close();
   }
 );
-addPopup.setEventListeners();
+popupAddCard.setEventListeners();
 
-const editPopup = new PopupWithForm(editPopupSelector,
+const popupEditProfile = new PopupWithForm(editPopupSelector,
   (formData) => {
     userInfo.setUserInfo(formData);
-    editPopup.close();
+    popupEditProfile.close();
   }
 );
-editPopup.setEventListeners();
+popupEditProfile.setEventListeners();
 
 // кнопки
 
 profileAddElement.addEventListener('click', () => {
   addFormValidation.resetValidation();
-  addPopup.open();
+  popupAddCard.open();
 });
 
 profileEditElement.addEventListener('click', () => {
@@ -98,5 +98,5 @@ profileEditElement.addEventListener('click', () => {
   inputName.value = info.username;
   inputAbout.value = info.about;
   editFormValidation.resetValidation();
-  editPopup.open();
+  popupEditProfile.open();
 });
