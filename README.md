@@ -15,8 +15,4 @@
 * ООП
 * Webpack
 
-3. Планы по доработке проекта:
-
-* Дописать вендорные префиксы
-
-4. [Ссылка на проект](https://artandreeva.github.io/mesto/)
+3. [Ссылка на проект](https://artandreeva.github.io/mesto/)
